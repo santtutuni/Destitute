@@ -31,7 +31,7 @@ describe('toNumber', () => {
     expect(toNumber(complexObject)).toBe(10);
     
     const nestedObject = { valueOf: () => ({}) };
-    expect(toNumber(nestedObject)).toBe('NaN'); // Object that doesn't convert to a number
+    expect(toNumber(nestedObject)).toBeNaN(); // Object that doesn't convert to a number
   });
 
   test('should parse hexadecimal, binary, and octal strings', () => {
