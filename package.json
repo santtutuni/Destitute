@@ -25,7 +25,9 @@
     "extensionsToTreatAsEsm": [
       ".ts",
       ".jsx"
-    ]
+    ],
+    "testPathIgnorePatterns": ["/node_modules/", "/.internal/"],
+    "coveragePathIgnorePatterns": ["/node_modules/", "/.internal/"]
   },
   "author": "",
   "license": "MIT",
