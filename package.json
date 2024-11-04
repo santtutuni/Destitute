@@ -17,7 +17,8 @@
     "coverageDirectory": "coverage",
     "coverageReporters": [
       "text",
-      "lcov"
+      "lcov",
+      "html"
     ],
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
