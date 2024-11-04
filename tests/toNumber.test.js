@@ -1,4 +1,4 @@
-import toNumber from './path/to/toNumber'; // Adjust the path to where your toNumber function is located.
+import toNumber from '../src/toNumber'; // Adjust the path to where your toNumber function is located.
 
 describe('toNumber', () => {
   test('should return the number itself when input is a number', () => {
