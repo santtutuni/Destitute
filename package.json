@@ -26,7 +26,6 @@
     "extensionsToTreatAsEsm": [
       ".ts",
       ".jsx",
-      ".js",
       ".mjs"
     ]
   },
