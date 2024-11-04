@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest --coverage",
-    "coverage": "jest --coverage",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls"
+    "coverage": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "coveralls": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js --coverage"
   },
   "jest": {
     "testEnvironment": "node",
