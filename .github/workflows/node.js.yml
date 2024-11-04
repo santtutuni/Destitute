@@ -32,7 +32,7 @@ jobs:
     - name: Run tests with coverage
       id: test
       run: |
-        npm test -- --coverage || echo "test failed but press gas pedal to the floor and continue"
+        npm test || echo "test failed but press gas pedal to the floor and continue"
 
     - name: Upload to Coveralls
       uses: coverallsapp/github-action@v2
