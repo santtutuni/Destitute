@@ -1,5 +1,5 @@
 // toFinite.test.js
-import toFinite from './toFinite'
+import toFinite from '../toFinite'
 
 describe('toFinite', () => {
   test('converts a finite number correctly', () => {
