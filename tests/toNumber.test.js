@@ -49,4 +49,29 @@ describe('toNumber', () => {
     expect(toNumber('Hello')).toBeNaN();
     expect(toNumber('')).toBeNaN(); // Empty string
   });
+
+  test('should return NaN for empty plain object', () => {
+    const plainObject = {};
+    expect(toNumber(plainObject)).toBeNaN();
+  });
+
+  test('should handle binary, octal, and hex with whitespace', () => {
+    expect(toNumber('  0b1101  ')).toBe(13);  // Binary with whitespace
+    expect(toNumber('  0o755  ')).toBe(493);  // Octal with whitespace
+    expect(toNumber('  0x1A  ')).toBe(26);    // Hexadecimal with whitespace
+  });
+
+  test('should return NaN for invalid binary, octal, and hex strings', () => {
+    expect(toNumber('0b1201')).toBeNaN();  // Invalid binary
+    expect(toNumber('0o758')).toBeNaN();   // Invalid octal
+    expect(toNumber('0x1G')).toBeNaN();    // Invalid hexadecimal
+    expect(toNumber('0xZZ')).toBeNaN();    // Invalid hexadecimal
+  });
+
+  test('should return NaN for non-numeric, non-object, and non-string inputs', () => {
+    expect(toNumber(null)).toBeNaN();
+    expect(toNumber(undefined)).toBeNaN();
+    expect(toNumber(NaN)).toBeNaN();
+  });
+
 });
