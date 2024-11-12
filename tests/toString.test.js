@@ -2,11 +2,6 @@
 import toString from '../src/toString'
 import isSymbol from '../src/isSymbol'
 
-// Mocking isSymbol function if necessary, or ensuring it's available.
-jest.mock('../src/isSymbol', () => {
-  return jest.fn(value => typeof value === 'symbol')
-})
-
 describe('toString', () => {
   test('converts string input to itself', () => {
     expect(toString('hello')).toBe('hello')
