@@ -73,5 +73,41 @@ describe('toNumber', () => {
     expect(toNumber(undefined)).toBeNaN();
     expect(toNumber(NaN)).toBeNaN();
   });
+  
+  test('should return NaN for a function input', () => {
+    const fn = () => {};
+    expect(toNumber(fn)).toBeNaN();
+  });
+});
 
+describe('toNumber - testing object conversion logic', () => {
+  test('should convert object with numeric valueOf to its number', () => {
+    const objWithValueOf = { valueOf: () => 42 };
+    expect(toNumber(objWithValueOf)).toBe(42);
+  });
+
+  test('should convert object with string toString to a number', () => {
+    const objWithToString = { toString: () => '3.5' };
+    expect(toNumber(objWithToString)).toBe(3.5);
+  });
+
+  test('should return NaN for objects that cannot convert to number', () => {
+    const nonConvertibleObject = { foo: 'bar' };
+    expect(toNumber(nonConvertibleObject)).toBeNaN();
+  });
+
+  test('should return NaN for functions', () => {
+    const fn = () => {};
+    expect(toNumber(fn)).toBeNaN();
+  });
+
+  test('should handle objects with nested valueOf returning non-primitive', () => {
+    const complexObject = { valueOf: () => ({ toString: () => '10' }) };
+    expect(toNumber(complexObject)).toBe(10);
+  });
+
+  test('should handle objects with valueOf returning another object without toString', () => {
+    const nestedObject = { valueOf: () => ({}) };
+    expect(toNumber(nestedObject)).toBeNaN(); // Non-convertible nested object
+  });
 });
