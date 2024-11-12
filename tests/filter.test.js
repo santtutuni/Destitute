@@ -52,4 +52,12 @@ describe('filter', () => {
     const result = filter(numbers, () => false);
     expect(result).toEqual([[]]);
   });
+
+  test('should handle null or undefined arrays', () => {
+    const result = filter(null, ({ active }) => active);
+    expect(result).toEqual([[]]);  
+  
+    const result2 = filter(undefined, ({ active }) => active);
+    expect(result2).toEqual([[]]);  
+  });
 });
