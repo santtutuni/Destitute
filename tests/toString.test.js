@@ -25,7 +25,7 @@ describe('toString', () => {
 
   test('converts symbols using their description', () => {
     const symbol = Symbol('test')
-    isSymbol.mockReturnValue(true) // Mocking isSymbol to return true
+    // Directly check if the value is a symbol instead of mocking isSymbol
     expect(toString(symbol)).toBe('Symbol(test)')
   })
 
@@ -45,4 +45,3 @@ describe('toString', () => {
     expect(toString(false)).toBe('false')
   })
 })
-
