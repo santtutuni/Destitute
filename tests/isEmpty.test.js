@@ -89,6 +89,11 @@ test('should return false for an object with an own property, no prototype', () 
   expect(isEmpty(obj)).toBe(false);
 });
 
+test('should return true for an object without an own property, no prototype', () => {
+  const obj = Object.create(null);
+  expect(isEmpty(obj)).toBe(true);
+});
+
 test('should return true for an empty plain object', () => {
   const obj = {};
   expect(isEmpty(obj)).toBe(true);
