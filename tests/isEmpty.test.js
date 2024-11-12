@@ -66,3 +66,21 @@ describe('isEmpty', () => {
     expect(isEmpty(buffer)).toBe(true);
   });
 });
+
+test('should return true for Object.prototype', () => {
+  expect(isEmpty(Object.prototype)).toBe(true);
+});
+
+test('should return true for Object.prototype', () => {
+  expect(isEmpty(Object.prototype)).toBe(true);
+});
+
+test('should return false for an object with own properties', () => {
+  const obj = { a: 1 };  // A plain object with an own property
+  expect(isEmpty(obj)).toBe(false);
+});
+
+test('should return true for an empty plain object', () => {
+  const obj = {}; // Plain object with no own properties
+  expect(isEmpty(obj)).toBe(true);
+});
