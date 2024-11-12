@@ -26,7 +26,7 @@ describe('isEmpty', () => {
   });
 
   test('should return false for non-empty strings', () => {
-    expect(isEmpty('')).toBe(false);
+    expect(isEmpty('')).toBe(true);
     expect(isEmpty('abc')).toBe(false);
   });
 
