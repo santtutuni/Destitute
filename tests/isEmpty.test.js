@@ -75,12 +75,16 @@ test('should return true for Object.prototype', () => {
   expect(isEmpty(Object.prototype)).toBe(true);
 });
 
-test('should return false for an object with own properties', () => {
-  const obj = { a: 1 };  // A plain object with an own property
-  expect(isEmpty(obj)).toBe(false);
+test('should return false for objects with enumerable own properties', () => {
+  const objWithOneProp = { a: 1 };
+  const objWithMultipleProps = { a: 1, b: 2, c: 3 };
+  
+  expect(isEmpty(objWithOneProp)).toBe(false);
+  expect(isEmpty(objWithMultipleProps)).toBe(false);
 });
 
+
 test('should return true for an empty plain object', () => {
-  const obj = {}; // Plain object with no own properties
+  const obj = {};
   expect(isEmpty(obj)).toBe(true);
 });
