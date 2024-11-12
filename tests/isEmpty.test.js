@@ -83,6 +83,11 @@ test('should return false for objects with enumerable own properties', () => {
   expect(isEmpty(objWithMultipleProps)).toBe(false);
 });
 
+test('should return false for an object with an own property, no prototype', () => {
+  const obj = Object.create(null);
+  obj.a = 1;
+  expect(isEmpty(obj)).toBe(false);
+});
 
 test('should return true for an empty plain object', () => {
   const obj = {};
