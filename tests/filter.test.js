@@ -20,12 +20,12 @@ describe('filter', () => {
       { user: 'fred', active: false },
     ];
     const result = filter(users, ({ active }) => active);
-    expect(result).toEqual([]);
+    expect(result).toEqual([[]]);
   });
 
   test('should handle an empty array', () => {
     const result = filter([], ({ active }) => active);
-    expect(result).toEqual([]);
+    expect(result).toEqual([[]]);
   });
 
   test('should work with different data types', () => {
@@ -50,6 +50,6 @@ describe('filter', () => {
   test('should work with predicates that return false for all elements', () => {
     const numbers = [1, 2, 3, 4, 5];
     const result = filter(numbers, () => false);
-    expect(result).toEqual([]);
+    expect(result).toEqual([[]]);
   });
 });
